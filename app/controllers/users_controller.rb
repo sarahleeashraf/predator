@@ -75,11 +75,26 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    begin
+      @user.destroy
+      flash[:notice] = "User #{@user.email} deleted"
+    rescue Exception => e
+      flash[:notice] = e.message
+    end
 
     respond_to do |format|
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
   end
+  
+  protected
+  
+    def authorize
+      unless User.find_by_id(session[:user_id]).role == "admin"
+        flash[:notice] = "You are not authorized to view this section"
+        redirect_to :controller => 'wells'
+      end
+    end
+  
 end

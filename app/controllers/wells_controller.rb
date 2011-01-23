@@ -1,4 +1,5 @@
 class WellsController < ApplicationController
+
   # GET /wells
   # GET /wells.xml
   def index
@@ -143,4 +144,13 @@ class WellsController < ApplicationController
     flash[:notice] = "Invalid Well"
     redirect_to :action => "index"
   end
+  
+   protected
+  
+    def authorize
+      unless User.find_by_id(session[:user_id]).role == "admin" || User.find_by_id(session[:user_id]).role == "data_entry"
+        flash[:notice] = "You are not authorized to view this section"
+        redirect_to :controller => 'wells'
+      end
+    end
 end

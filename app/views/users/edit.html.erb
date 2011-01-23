@@ -8,16 +8,18 @@
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :hashed_password %><br />
-    <%= f.text_field :hashed_password %>
+    <%= f.label :password, 'Password' %><br />
+    <%= f.password_field :password, :size => 40 %>
   </p>
+  
   <p>
-    <%= f.label :salt %><br />
-    <%= f.text_field :salt %>
+    <%= f.label :password_confirmation, 'Password Confirmation' %><br />
+    <%= f.password_field :password_confirmation, :size => 40 %>
   </p>
+ 
   <p>
     <%= f.label :role %><br />
-    <%= f.text_field :role %>
+    <%= f.select :role, User::ROLES %>
   </p>
   <p>
     <%= f.submit "Update" %>

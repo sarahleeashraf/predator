@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
 	
 	validate :password_non_blank
 	
+	ROLES = [
+	  ["Admin", "admin"],
+	  ["Data Entry", "data_entry"],
+	  ["Data View", "data_view"]
+	]
+	
 	def self.authenticate(email, password)
 	  user = self.find_by_email(email)
 	  if user
@@ -29,6 +35,12 @@ class User < ActiveRecord::Base
 	  return if pwd.blank?
 	  create_new_salt
 	  self.hashed_password = User.encrypted_password(self.password, self.salt)
+	end
+	
+	def after_destroy
+	  if User.count.zero?
+	    raise "Can't delete last user"
+	  end
 	end
 	
 	private

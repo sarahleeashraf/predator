@@ -4,8 +4,7 @@ class AdminController < ApplicationController
       user = User.authenticate(params[:email], params[:password])
       if user
         session[:user_id] = user.id
-        session[:user_role] = user.role
-        redirect_to(:action => 'index')
+        redirect_to(:controller => 'wells')
       else
         flash.now[:notice] = "Invalid email/password combination"
       end
@@ -13,6 +12,9 @@ class AdminController < ApplicationController
   end
 
   def logout
+    session[:user_id] = nil
+    flash[:notice] = "logged out"
+    redirect_to (:action => "login")
   end
 
   def index

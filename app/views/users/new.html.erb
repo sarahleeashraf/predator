@@ -18,7 +18,7 @@
   </p>
   <p>
     <%= f.label :role %><br />
-    <%= f.text_field :role %>
+     <%= f.select :role, User::ROLES, :prompt => "Select a role for this user" %>
   </p>
   <p>
     <%= f.submit "Create" %>
