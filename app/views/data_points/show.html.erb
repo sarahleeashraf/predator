@@ -1,0 +1,23 @@
+<p>
+  <b>Date:</b>
+  <%=h @data_point.date %>
+</p>
+
+<p>
+  <b>Oil amt:</b>
+  <%=h @data_point.oil_amt %>
+</p>
+
+<p>
+  <b>Gas amt:</b>
+  <%=h @data_point.gas_amt %>
+</p>
+
+<p>
+  <b>Well:</b>
+  <%=h @data_point.well_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_data_point_path(@data_point) %> |
+<%= link_to 'Back', data_points_path %>

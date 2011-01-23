@@ -1,0 +1,19 @@
+<h1>Listing wells</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Field</th>
+  </tr>
+
+<% for well in @wells %>
+  <tr>
+    <td><%= link_to well.name, :action => 'view_data', :id => well.id %></td>
+    <td><%= link_to 'Edit', edit_well_path(well) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New well', new_well_path %>

@@ -1,0 +1,26 @@
+<h1>Listing data_points</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Oil amt</th>
+    <th>Gas amt</th>
+    <th>Well</th>
+  </tr>
+
+<% for data_point in @data_points %>
+  <tr>
+    <td><%=h data_point.date %></td>
+    <td><%=h data_point.oil_amt %></td>
+    <td><%=h data_point.gas_amt %></td>
+    <td><%=h data_point.well_id %></td>
+    <td><%= link_to 'Show', data_point %></td>
+    <td><%= link_to 'Edit', edit_data_point_path(data_point) %></td>
+    <td><%= link_to 'Destroy', data_point, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New data_point', new_data_point_path %>

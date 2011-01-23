@@ -1,0 +1,27 @@
+<h2>Data for <%= @well.name %> in <%= @current_month_name %>, <%= @year %></h2>
+
+<ul>
+	<li><%= link_to '&laquo;', :id => @well.id, :year => @prev_year, :month => @month %></li>
+	<li><%= link_to '&lsaquo;', :id => @well.id, :year => @prev_month[:year], :month => @prev_month[:month] %></li>
+	<li><%= link_to '&rsaquo;', :id => @well.id, :year => @next_month[:year], :month => @next_month[:month] %></li>
+	<li><%= link_to '&raquo;', :id => @well.id, :year => @next_year, :month => @month %></li>
+</ul>
+
+<ul>
+
+<% for date in @dates %>
+
+	<% if date[:data] %>
+	
+	<li class="has-data" style="background-color: #FFFF00;"><%= link_to date[:date].day, :controller=> "data_points", :action=> date[:data].id %></li>
+	
+	<% else %>
+
+	<li> <%= link_to date[:date].day, :controller => "data_points", :action => "new", :well_id => @well.id, :date => date[:date] %></li>
+
+	<% end %>
+
+
+<% end %>
+
+</ul>

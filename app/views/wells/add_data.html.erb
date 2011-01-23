@@ -1,0 +1,25 @@
+<h2>Add Data for <%= @well.name %></h2>
+
+<% form_for(@data_point) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </p>
+  <p>
+    <%= f.label :oil_amt %><br />
+    <%= f.text_field :oil_amt %>
+  </p>
+  <p>
+    <%= f.label :gas_amt %><br />
+    <%= f.text_field :gas_amt %>
+  </p>
+  <p>
+    <%= f.label :well_id %><br />
+    <%= f.text_field :well_id %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>Editing data_point</h1>
+
+<% form_for(@data_point) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </p>
+  <p>
+    <%= f.label :oil_amt %><br />
+    <%= f.text_field :oil_amt %>
+  </p>
+  <p>
+    <%= f.label :gas_amt %><br />
+    <%= f.text_field :gas_amt %>
+  </p>
+  <p>
+    <%= f.label :well_id %><br />
+    <%= f.text_field :well_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @data_point %> |
+<%= link_to 'Back', data_points_path %>
