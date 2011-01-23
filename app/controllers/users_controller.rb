@@ -93,7 +93,7 @@ class UsersController < ApplicationController
     def authorize
       unless User.find_by_id(session[:user_id]).role == "admin"
         flash[:notice] = "You are not authorized to view this section"
-        redirect_to :controller => 'wells'
+        redirect_to :controller => 'reports'
       end
     end
   

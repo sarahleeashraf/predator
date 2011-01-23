@@ -20,6 +20,11 @@ class WellsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @well }
     end
+    
+  rescue ActiveRecord::RecordNotFound
+    logger.error("Attempt to access invalid well #{params[:id]}")
+  	flash[:notice] = "Invalid well"
+  	redirect_to :action => "index"
   end
 
   # GET /wells/new
@@ -132,9 +137,8 @@ class WellsController < ApplicationController
 		@dates << {:date => date, :data => data}
   		date += 1
   	end
-
-
   end
+  
   
   def add_data
     @well = Well.find(params[:id])
@@ -150,7 +154,7 @@ class WellsController < ApplicationController
     def authorize
       unless User.find_by_id(session[:user_id]).role == "admin" || User.find_by_id(session[:user_id]).role == "data_entry"
         flash[:notice] = "You are not authorized to view this section"
-        redirect_to :controller => 'wells'
+        redirect_to :controller => 'reports'
       end
     end
 end

@@ -14,17 +14,40 @@
 
 <p style="color: green"><%= flash[:notice] %></p>
 
+<% current_user = User.find_by_id(session[:user_id]) %>
+
+<% if current_user %>
+
 <div class="span-4">
 
+
+
+<div class="box">
+<p>Welcome, <%= current_user.email %>
+</div>
+
+
 <ul>
+	
+	
+	<% if current_user.role == "admin" %>
+
 	<li><a href="/users">Manage Users</a></li>
+	
+	<% end %>
+	
+	<% if current_user.role == "admin" || current_user.role =="data_entry" %>
 	<li><a href="/fields">Manage fields</a></li>
 	<li><a href="/wells">Enter data</a></li>
+	<% end %>
+	
 	<li><a href="#">View Reports</a></li>
 	<li><a href="/admin/logout">Logout</a></li>
 
 
 </div>
+
+<% end %>
 
 <div class="span-20 last">
 
