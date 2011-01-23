@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :data_points
+
+  map.resources :wells
+
+  map.resources :fields
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -40,4 +46,6 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  map.connect 'wells/view_data/:id/:year/:month', :controller => 'wells', :action => "view_data"
+  map.connect 'data_points/new/:well_id/:date', :controller => 'data_points', :action => "new"
 end

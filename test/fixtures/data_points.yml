@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 
+  oil_amt: 1
+  gas_amt: 1
+  well_id: 1
+
+two:
+  date: 
+  oil_amt: 1
+  gas_amt: 1
+  well_id: 1
