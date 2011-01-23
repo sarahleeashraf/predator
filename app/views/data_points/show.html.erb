@@ -15,9 +15,9 @@
 
 <p>
   <b>Well:</b>
-  <%=h @data_point.well_id %>
+  <%=h @well.name %>
 </p>
 
 
 <%= link_to 'Edit', edit_data_point_path(@data_point) %> |
-<%= link_to 'Back', data_points_path %>
+<%= link_to 'Back', :controller => 'wells', :action => 'view_data', :id => @data_point.well_id %>

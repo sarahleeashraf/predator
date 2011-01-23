@@ -29,6 +29,6 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', data_points_path %>
+<%= link_to 'Back', :controller => 'wells', :action => 'view_data', :id => @well.id%>
 
 <% end %>
