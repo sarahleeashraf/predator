@@ -4,34 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title><%= controller.action_name %> | Predator</title>
+  <title>Users: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
-  <%= stylesheet_link_tag 'screen' %>
 </head>
 <body>
 
-<div class="container">
-
 <p style="color: green"><%= flash[:notice] %></p>
 
-<div class="span-4">
-
-<ul>
-	<li><a href="/users">Manage Users</a></li>
-	<li><a href="/fields">Manage fields</a></li>
-	<li><a href="/wells">Enter data</a></li>
-	<li><a href="#">View Reports</a></li>
-
-
-</div>
-
-<div class="span-20 last">
-
 <%= yield  %>
-
-</div>
-
-</div>
 
 </body>
 </html>
