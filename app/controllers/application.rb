@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
   
   protected
     def authorize
+    
+      puts self
       unless User.find_by_id(session[:user_id])
         flash[:notice] = "Please Log In"
         redirect_to :controller => 'admin', :action => 'login'

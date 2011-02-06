@@ -13,6 +13,13 @@ class DataPoint < ActiveRecord::Base
 		already_exists = DataPoint.find(:first, :conditions => ["date = :date and well_id = :well_id", {:date => date, :well_id => well_id}])
 	end
 	
+	def self.get_last_30_days()
+		today = Date.new
+		puts today	
+	end
+	
+	defl self.get
+	
 	protected
 		def well_exists
 			errors.add(:well_id, 'this well does not exist') if !Well.well_exists well_id

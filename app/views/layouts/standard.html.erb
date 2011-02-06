@@ -24,6 +24,7 @@
 
 <div class="box">
 <p>Welcome, <%= current_user.email %>
+<p><a href="/users/<%= session[:user_id]%>/edit">Edit Your Account</a></p>
 </div>
 
 
@@ -37,11 +38,18 @@
 	<% end %>
 	
 	<% if current_user.role == "admin" || current_user.role =="data_entry" %>
+	
 	<li><a href="/fields">Manage fields</a></li>
 	<li><a href="/wells">Enter data</a></li>
+	
+	
 	<% end %>
 	
-	<li><a href="#">View Reports</a></li>
+	
+	
+	
+	
+	<li><a href="/reports">View Reports</a></li>
 	<li><a href="/admin/logout">Logout</a></li>
 
 

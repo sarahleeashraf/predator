@@ -33,7 +33,7 @@ class DataPointsController < ApplicationController
     @data_point.date = params[:date]
     @data_point.well_id = params[:well_id]
     
-    @well = Well.find(@data_point.well_id)
+    @well = Well.find(@data_point.well
 	
     respond_to do |format|
       format.html # new.html.erb

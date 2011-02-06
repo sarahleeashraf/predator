@@ -17,10 +17,17 @@
     <%= f.password_field :password_confirmation, :size => 40 %>
   </p>
  
+  <% if (@current_user.role == "admin") %>
+ 
   <p>
     <%= f.label :role %><br />
     <%= f.select :role, User::ROLES %>
   </p>
+  
+  <% end %>
+  
+  
+  
   <p>
     <%= f.submit "Update" %>
   </p>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # before_filter :authorize_users
   # GET /users
   # GET /users.xml
   def index
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @current_user = User.find(session[:user_id])
   end
 
   # POST /users
@@ -91,7 +93,16 @@ class UsersController < ApplicationController
   protected
   
     def authorize
-      unless User.find_by_id(session[:user_id]).role == "admin"
+    	
+      puts "authorizing!"
+      puts "action: " + params[:action]
+      puts params[:id].class
+      puts session[:user_id].class
+      puts params[:id] == session[:user_id].to_s
+      puts params[:action] == "edit"
+      
+      
+      unless User.find_by_id(session[:user_id]).role == "admin" || ((params[:id] == session[:user_id].to_s) && (params[:action] == "edit"))
         flash[:notice] = "You are not authorized to view this section"
         redirect_to :controller => 'reports'
       end
