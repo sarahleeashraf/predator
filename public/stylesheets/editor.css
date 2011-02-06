@@ -1,0 +1,17 @@
+/************************************/
+/* RESET DEFAULTS AND BASIC SETTINGS*/
+/************************************/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 85.0%;
+  font-weight: normal;
+  color: #000;
+  margin: 0;
+  padding: 3px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}

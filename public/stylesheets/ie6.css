@@ -1,0 +1,31 @@
+/****************/
+/* IE6 STYLING  */
+/****************/
+
+#main-menu { width: 590px; }
+
+#insideTabsMenuArrow { margin-right: 15px; }
+
+.message-wrapper .close {
+  top: 10px;
+  right: 5px;
+  font-size: 1px;
+}
+
+.message-wrapper .full {
+  right: 30px;
+}
+
+.data-table tbody td .table-edit {
+  background: url('../img/table-edit.jpg') no-repeat 0 0;
+}
+
+.data-table tbody td .table-delete {
+  background: url('../img/table-delete.jpg') no-repeat 0 0;
+}
+
+#mainTab-1,#mainTab-2,#mainTab-3,#mainTab-4,#mainTab-5, #mainTab-6 {
+  min-height: 700px;
+  height: auto !important;
+  height: 700px;
+}

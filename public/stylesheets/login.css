@@ -1,0 +1,36 @@
+/****************/
+/*  LOGIN FORM  */
+/****************/
+
+#login-page-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+#login-form-wrapper {
+  margin: 200px auto;
+  height: 270px;
+  width: 310px;
+}
+
+#login-wrapper {
+  margin: 0 auto;
+  padding: 0;
+  width: 250px;
+}
+
+#login-form-wrapper h1 { padding-bottom: 5px; }
+#login-wrapper input.text-box { 
+  border: 1px solid #c2c2c2;
+  background: url('../img/bg-textfield.png') repeat-x;
+  padding: 0.3em;
+  width: 140px;
+}
+#login-submit { outline: none; }
+
+
+#login-message { 
+  margin: 0 auto 20px auto;
+  width: 70%;
+}

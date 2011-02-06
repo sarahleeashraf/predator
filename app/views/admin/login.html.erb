@@ -1,23 +1,26 @@
 <h1>Login</h1>
 
-<% form_tag do %>
-	<fieldset>
-		<legend>Please Log In</legend>
-		
-		<div>
-			<label for="email">Email:</label>
-			<%= text_field_tag :email, params[:email] %>
-		</div>
-		
-		<div>
-			<label for="password">Password:</label>
-			<%= password_field_tag :password, params[:password] %>
-		</div>
-		
-		<div>
-			<%= submit_tag "Login" %>
-		</div>
+          
 
+<% form_tag do %>
+
+
+<div class="form-wrapper" id="login-wrapper">
+            <p class="w-30p ta-right"><label class="blue bold" for="username">Email&nbsp;&nbsp;</label></p>
+            <p class="w-60p ta-right"><%= text_field_tag :email, params[:email] %></p>
+            <div class="clear pt-2x"></div>
+
+            <p class="w-30p ta-right"><label class="blue bold" for="passw">Password&nbsp;&nbsp;</label></p>
+            <p class="w-60p ta-right"><%= password_field_tag :password, params[:password] %></p>
+            <div class="clear pt-2x"></div>
+			<p class="w-30p">&nbsp;</p>
+            <p class="w-60p ta-right"><%= submit_tag "Login" %></p>
+  
+                       <div class="clear"></div>
+          </div>
+
+        
+      
 
 <% end %>
 

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="" />
+
+    <title>Projectic Admin Skin</title>
+
+
+    
+    <%= stylesheet_link_tag 'general' %>
+    <%= stylesheet_link_tag 'styles' %>
+    <%= stylesheet_link_tag 'calendar' %>
+    <%= stylesheet_link_tag 'fancybox' %>
+    <%= stylesheet_link_tag 'message' %>
+    <%= stylesheet_link_tag 'form' %>
+    
+	<!--[if IE ]><%= stylesheet_link_tag 'ie' %><![endif]-->
+	<!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]--> 
+	<!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]--> 
+
+
+  </head>
+
+  <body class="common">
+    <div id="page-wrapper-1">
+
+      <div id="header-wrapper-1">
+      
+        <h1 id="logo">
+          <!-- ****************** LOGO ****************** -->
+          <a href=""><img src="/img/logo.jpg" alt="Projectic Logo" /></a>
+        </h1>
+     
+      </div> <!--header-wrapper-1 -->
+
+
+      <!-- ****************** LEFT SIDEBAR ****************** -->
+      <% current_user = User.find_by_id(session[:user_id]) %>
+
+
+      <% if current_user %>
+      <div id="left-wrapper-1">
+          <h2 class="box-1-title">User details</h2>
+          <div class="box-1">
+          	
+            <p>Welcome, <strong><%= current_user.email %></strong>!</p>
+            
+            <ul id="user-menu">
+              <li><a href="/users/<%= session[:user_id]%>/edit">Edit your account </a> |&nbsp;</li>
+              <li><a href="/admin/logout">Logout</a></li>
+            </ul>
+            
+            <div class="clear"></div>
+            
+          </div> <!--box-1-->
+          <div class="shadow"></div>
+
+          <!-- ****************** SIDEMENU ****************** -->
+          <h2 class="box-1-title">Side menu</h2>
+          <div class="box-1">
+            <ul id="side-menu">
+   				<% if current_user.role == "admin" %>
+   				
+   				<li class="submenu-item"><a class="submenu-link" href="/users">Manage Users</a></li>
+   				
+   				<% end %>
+   				
+   				<% if current_user.role == "admin" || current_user.role =="data_entry" %>
+   				
+   				<li class="submenu-item"><a class="submenu-link" href="/fields">Manage fields</a></li>
+				<li class="submenu-item"><a class="submenu-link" href="/wells">Enter data</a></li>
+				
+				<% end %>
+				
+				
+            
+          		<li class="submenu-item"><a class="submenu-link" href="/reports">View Reports</a></li>
+
+          		
+            </ul>
+            <div class="clear"></div>
+          </div> <!--box-1-->
+          <div class="shadow"></div>
+
+
+        
+      </div> <!--left-wrapper-->
+      <% end %>
+		
+
+      <div id="content-wrapper-1">
+        <div id="squeeze">
+          <div id="content">
+
+            <div id="mainTabs" >
+
+              
+  
+              <div id="mainTab-1">
+              	<p style="color: green"><%= flash[:notice] %></p>
+
+					<%= yield  %>
+          
+              </div> <!--mainTab-1-->
+
+            </div> <!--mainTabs-->
+
+          </div> <!--content-wrapper-->
+  
+          <div class="clear"></div>
+
+        </div>
+      </div> <!--content-wrapper-->
+
+      <div class="clear"></div>
+    </div> <!--page-wrapper-1 -->
+
+
+    <!-- ****************** FOOTER ****************** -->
+    <div id="footer-wrapper-1">
+      <div id="footer-arrow">
+        <p><strong>Thank you for checking this theme out!</strong></p>
+        <p>
+          <a href="http://themeforest.net/user/Darinka">Author on ThemeForest</a> |
+          <a href="http://designagent.sk/en">DesignAgent</a>
+        </p>
+      </div>
+    </div> <!--footer-wrapper-1 -->
+
+  </body>
+</html>
