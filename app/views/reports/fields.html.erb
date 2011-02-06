@@ -1,0 +1,9 @@
+<h1>Fields</h1>
+
+<ul>
+<% for field in @fields %>
+
+<li><a href="/reports/field_report/<%= field.id %>"><%=field.name%></a></li>
+
+<% end %>
+</ul>

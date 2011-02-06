@@ -1,0 +1,22 @@
+<h1>Report for <%= @well.name %></h1>
+
+<table>
+	<thead>
+		<th>Date</th>
+		<th>oil pumped today</th>
+		<th>oil pumped total</th>
+		<th>gas pumped today</th>
+		<th>gas pumped total</t>
+	</thead>
+	
+	<% for day in @days %>
+	<tr>	
+		<td><%= day[:date] %></td>
+		<td><%= day[:oil_amount] %></td>
+		<td><%= day[:oil_sum] %></td>
+		<td><%= day[:gas_amount] %></td>
+		<td><%= day[:gas_sum] %></td>
+	</tr>	
+	<% end %>
+
+</table>
