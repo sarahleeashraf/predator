@@ -14,11 +14,11 @@ class DataPoint < ActiveRecord::Base
 	end
 	
 	def self.get_last_30_days()
-		today = Date.new
-		puts today	
+		today = Date.today
+		month_earlier = Date.today - 30
+		DataPoint.find(:all, :conditions => [ "date >= :month_earlier and date <= :today", {:month_earlier => month_earlier, :today => today}], :order => "date")
 	end
 	
-	defl self.get
 	
 	protected
 		def well_exists

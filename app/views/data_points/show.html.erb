@@ -20,4 +20,4 @@
 
 
 <%= link_to 'Edit', edit_data_point_path(@data_point) %> |
-<%= link_to 'Back', :controller => 'wells', :action => 'view_data', :id => @data_point.well_id %>
+<%= link_to 'Back', :controller => 'wells', :action => 'view_data', :id => @data_point.well_id, :year => @data_point.date.year, :month => @data_point.date.month %>

@@ -1,6 +1,5 @@
 <h1>Reports</h1>
 
-<p>See <a href="/reports/fields">Fields</a></p>
 <table>
 	<thead>
 		<th>Date</th>
@@ -12,11 +11,11 @@
 	
 	<% for day in @days %>
 	<tr>	
-		<td><%= day[:date] %></td>
-		<td><%= day[:oil_amount] %></td>
-		<td><%= day[:oil_sum] %></td>
-		<td><%= day[:gas_amount] %></td>
-		<td><%= day[:gas_sum] %></td>
+		<td><%= @day.date %></td>
+		<td><%= @day.oil_sum %></td>
+		<td><%= @day.oil_amount %></td>
+		<td><%= @day.gas_sum %></td>
+		<td><%= @day.gas_amount %></td>
 	</tr>	
 	<% end %>
 

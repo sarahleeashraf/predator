@@ -33,8 +33,8 @@ class DataPointsController < ApplicationController
     @data_point.date = params[:date]
     @data_point.well_id = params[:well_id]
     
-    @well = Well.find(@data_point.well
-	
+    @well = Well.find(@data_point.well_id)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @data_point }
@@ -107,7 +107,7 @@ class DataPointsController < ApplicationController
     def authorize
       unless User.find_by_id(session[:user_id]).role == "admin" || User.find_by_id(session[:user_id]).role == "data_entry"
         flash[:notice] = "You are not authorized to view this section"
-        redirect_to :controller => 'reports'
+        redirect_to :controller => 'wells'
       end
     end
   
