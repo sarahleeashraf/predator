@@ -27,7 +27,7 @@ namespace :deploy do
 	
 	desc "Symlinks the database.yml"
 	task :symlink_db, :roles => :app do
-		run "ln -nfs /home/predator/database_config/database.yml" "/home/predator/predator_app/public/current/config/database.yml"
+		run "ln -nfs /home/predator/database_config/database.yml /home/predator/predator_app/public/current/config/database.yml"
 	end
 	
 end
