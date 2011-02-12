@@ -44,6 +44,10 @@ class ReportsController < ApplicationController
   protected
   
   	def build_report(all_data)
+  		
+  		all_data = nil ? return
+  		
+  		
   		first_day = all_data[0].date
     	
     	time_length = Date.today - first_day
