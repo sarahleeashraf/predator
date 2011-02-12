@@ -48,7 +48,7 @@ class ReportsController < ApplicationController
   
   	def build_report(all_data)
   		
-  		return if all_data == nil
+  		return if all_data.empty?
   		
   		
   		first_day = all_data[0].date
