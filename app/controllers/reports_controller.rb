@@ -45,7 +45,7 @@ class ReportsController < ApplicationController
   
   	def build_report(all_data)
   		
-  		if (all_data == nil) return
+  		if (all_data == nil) return end
   		
   		
   		first_day = all_data[0].date
