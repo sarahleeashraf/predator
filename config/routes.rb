@@ -50,4 +50,5 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
   map.connect 'wells/view_data/:id/:year/:month', :controller => 'wells', :action => "view_data"
   map.connect 'data_points/new/:well_id/:date', :controller => 'data_points', :action => "new"
+  map.connect '/', :controller => 'admin', :action => 'login'
 end

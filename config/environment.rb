@@ -2,8 +2,8 @@
 
 # Uncomment below to force Rails into production mode when
 # you don't control web/app server and can't set it the proper way
-ENV['RAILS_ENV'] ||= 'production'
-RAILS_ENV = ENV["RAILS_ENV"]
+# ENV['RAILS_ENV'] ||= 'production'
+# RAILS_ENV = ENV["RAILS_ENV"]
 
 ENV['GEM_PATH'] = '/home/predator/ruby/gems:/user/lib/ruby/gems/1.8'
 
