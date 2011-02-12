@@ -42,6 +42,8 @@ class WellsController < ApplicationController
   # GET /wells/1/edit
   def edit
     @well = Well.find(params[:id])
+    
+    @fields = Field.find(:all, :order => 'name')
   end
 
   # POST /wells
