@@ -18,7 +18,7 @@ set :scm_verbose, true
 set :use_sudo, false
 
 
-after 'deploy:update_code', 'deploy:symlink_db'
+after 'deploy:symlink', 'deploy:symlink_db'
 
 namespace :deploy do
 	task :restart do
