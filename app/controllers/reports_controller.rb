@@ -4,7 +4,8 @@ class ReportsController < ApplicationController
   
     #pull the information for everything aggregated
         
-    @days = build_report(DataPoint.find(:all, :order => 'date'))    
+    @days = build_report(DataPoint.find(:all, :order => 'date')) 
+    
 
   end
   
@@ -22,6 +23,7 @@ class ReportsController < ApplicationController
   	
   	@days = build_report(DataPoint.find(:all, :conditions => ["well_id = ?", @well], :order => 'date'))
   	
+  	
   end
   
   def field_report
@@ -38,6 +40,7 @@ class ReportsController < ApplicationController
   	data.sort! {|a,b| a.date <=> b.date}
   
   	@days = build_report(data)
+  	
   
   end
   

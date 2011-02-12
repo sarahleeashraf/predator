@@ -1,5 +1,11 @@
 <h1>Report for <%= @well.name %></h1>
 
+<% if @days == nil %>
+
+<p>No data has been entered for <%= @well.name %></p>
+
+<% else %>
+
 <table>
 	<thead>
 		<th>Date</th>
@@ -20,3 +26,5 @@
 	<% end %>
 
 </table>
+
+<% end %>

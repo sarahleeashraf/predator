@@ -1,5 +1,11 @@
 <h1>Reports</h1>
 
+<% if @days == nil %>
+
+<p>No data has been entered</p>
+
+<% else %>
+
 <p>See <a href="/reports/fields">Fields</a></p>
 <table>
 	<thead>
@@ -21,3 +27,5 @@
 	<% end %>
 
 </table>
+
+<% end %>
