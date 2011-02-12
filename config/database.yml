@@ -17,7 +17,7 @@ test:
 
 production:
   adapter: mysql
-  database: predator_app
-  username: predator_app
-  password: pr3d@+0r
+  database: 
+  username: 
+  password: 
   host: localhost
