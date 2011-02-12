@@ -1,0 +1,4 @@
+PassengerEnabled on
+RailsEnv production
+PassengerAppRoot /home/predator/predator_app/public/current/
+RailsBaseURI /
