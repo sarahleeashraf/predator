@@ -6,7 +6,6 @@ class ReportsController < ApplicationController
         
     @days = build_report(DataPoint.find(:all, :order => 'date')) 
     
-
   end
   
   def fields
@@ -22,7 +21,10 @@ class ReportsController < ApplicationController
   	@well = Well.find_by_id(params[:id])
   	
   	@days = build_report(DataPoint.find(:all, :conditions => ["well_id = ?", @well], :order => 'date'))
-  	
+    respond_to do |format|
+         format.html # index.html.erb
+         format.xml { render :layout => false }
+    end
   	
   end
   
@@ -30,8 +32,8 @@ class ReportsController < ApplicationController
   	@field = Field.find_by_id(params[:id])
   
   	wells = Well.find(:all, :conditions => ["field_id = ?", params[:id]])
- 
- 	data = Array.new
+  	  
+ 	  data = Array.new
  
   	for well in wells
   		data = data | DataPoint.find(:all, :conditions => ["well_id = ?", well], :order => 'date')
@@ -40,7 +42,10 @@ class ReportsController < ApplicationController
   	data.sort! {|a,b| a.date <=> b.date}
   
   	@days = build_report(data)
-  	
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml { render :layout => false }
+    end
   
   end
   

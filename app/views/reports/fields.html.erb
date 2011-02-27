@@ -1,9 +1,17 @@
 <h1>Fields</h1>
 
-<ul>
+
+<table>
+		
+<thead>
+	<th>Field Name</th>
+	<th colspan=2>&nbsp</th>
+</thead>
+<tr>
 <% for field in @fields %>
-
-<li><a href="/reports/field_report/<%= field.id %>"><%=field.name%></a></li>
-
+<td><%=field.name%></td>
+<td><a href="/reports/field_report/<%= field.id %>.xml">Download Report</a></td>
+<td><a href="/reports/wells/<%= field.id %>">view wells</a></td>
+</tr>
 <% end %>
-</ul>
+</table>

@@ -101,6 +101,7 @@ class WellsController < ApplicationController
   	
   	date = Date.civil(Integer(params[:year]), Integer(params[:month]));
   	
+    @day_of_week = date.wday
   	@month = date.month
   	@year = date.year
   	
@@ -134,10 +135,11 @@ class WellsController < ApplicationController
   	@dates = Array.new
   	
   	while date.month == @month do
-		#find if there is a datapoint for this day and this well
-		data = DataPoint.data_point_exists(@well.id, date)
-		@dates << {:date => date, :data => data}
-  		date += 1
+  		#find if there is a datapoint for this day and this well
+  		data = DataPoint.data_point_exists(@well.id, date)
+  		@dates << {:date => date, :data => data}
+    	
+  		  date += 1
   	end
   end
   

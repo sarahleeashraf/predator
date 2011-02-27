@@ -1,27 +1,52 @@
 <h2>Data for <%= @well.name %> in <%= @current_month_name %>, <%= @year %></h2>
 
-<ul>
-	<li><%= link_to '&laquo;', :id => @well.id, :year => @prev_year, :month => @month %></li>
-	<li><%= link_to '&lsaquo;', :id => @well.id, :year => @prev_month[:year], :month => @prev_month[:month] %></li>
-	<li><%= link_to '&rsaquo;', :id => @well.id, :year => @next_month[:year], :month => @next_month[:month] %></li>
-	<li><%= link_to '&raquo;', :id => @well.id, :year => @next_year, :month => @month %></li>
-</ul>
 
-<ul>
+<table>
+	<thead>
+		<th><%= link_to '&laquo;', :id => @well.id, :year => @prev_year, :month => @month%></li></th>
+		<th><%= link_to '&lsaquo;', :id => @well.id, :year => @prev_month[:year], :month => @prev_month[:month] %></th>
+		<th colspan=3 style="text-align: center"><b><%= @current_month_name %>, <%= @year %></b></th>
+		<th><%= link_to '&rsaquo;', :id => @well.id, :year => @next_month[:year], :month => @next_month[:month] %></th>
+		<th><%= link_to '&raquo;', :id => @well.id, :year => @next_year, :month => @month %></th> 
+	</thead>
+	<tr>
+		<td>Sun</td>
+		<td>Mon</td>
+		<td>Tues</td>
+		<td>Wed</td>
+		<td>Thurs</td>
+		<td>Fri</td>
+		<td>Sat</td>
+	</tr>
+	<tr>
+	<% count = 0 %>
+	<% while count < @day_of_week %>
+		<td>&nbsp;</td>
+		<% count += 1 %>
+	<% end %>
 
 <% for date in @dates %>
 
 	<% if date[:data] %>
 	
-	<li class="has-data" style="background-color: #FFFF00;"><%= link_to date[:date].day, :controller=> "data_points", :action=> date[:data].id %></li>
+	<td class="has-data" style="background-color: #FFFF00;"><%= link_to date[:date].day, :controller=> "data_points", :action=> date[:data].id %></td>
 	
 	<% else %>
 
-	<li> <%= link_to date[:date].day, :controller => "data_points", :action => "new", :well_id => @well.id, :date => date[:date] %></li>
+	<td> <%= link_to date[:date].day, :controller => "data_points", :action => "new", :well_id => @well.id, :date => date[:date] %></td>
 
+	<% end %>
+	
+	<% if count == 6 %>
+		</tr>
+		<tr>
+		
+		<% count = 0 %>
+	<% else %>
+		<% count += 1 %>
 	<% end %>
 
 
 <% end %>
 
-</ul>
+</table>

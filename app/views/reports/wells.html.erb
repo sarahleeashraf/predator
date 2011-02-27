@@ -1,9 +1,15 @@
 <h1>Wells in <%= @field.name %></h1>
 
-<ul>
+<table>
+<thead>
+<th>Well Name</th>
+<th>&nbsp;</th>
+</thead>
 <% for well in @wells %>
-
-<li><a href="/reports/well_report/<%= well.id %>"><%= well.name%></a></li>
+<tr>
+<td><%= well.name%></td>
+<td><a href="/reports/well_report/<%= well.id %>.xml">Download Report</a></td>
+</tr>
 
 <% end %>
-</ul>
+</table>
