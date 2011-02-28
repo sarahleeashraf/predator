@@ -1,8 +1,10 @@
+
 class ReportsController < ApplicationController
   
   def index  
   
     #pull the information for everything aggregated
+    
         
     @days = build_report(DataPoint.find(:all, :order => 'date')) 
     
